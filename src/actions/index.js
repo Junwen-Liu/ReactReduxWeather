@@ -11,6 +11,8 @@ export function fetchwt(ct){
 
   const request=axios.get(url);
   
+  console.log('request:', request);
+  
   //return action as the object, use {}, not()
   return{
     type: FETCH_WT,
