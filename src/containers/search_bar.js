@@ -8,27 +8,28 @@ class Searchbar extends Component{
   //initialize component state in constructor
   constructor(props){
     super(props);
-    
+
     this.state={term: ''};
-    
+
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
-  
+
   onInputChange(event){
     console.log(event.target.value);
     this.setState({term: event.target.value});
   }
-  
+
   onFormSubmit(event){
     //to tell the browser don;t submit the form
     event.preventDefault();
-    
+
     //we need to go and fetch data
+
     this.props.fetchwt(this.state.term);
     this.setState({term: ''});
   }
-  
+
   render(){
     return(
       <form onSubmit={this.onFormSubmit} className="input-group">
@@ -52,6 +53,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect (null, mapDispatchToProps)(Searchbar);
-
-
-
