@@ -10,3 +10,9 @@ td,th{
 svg{
   height: 150px;
 }
+
+/*find first td in each row and also find first td and its child div, which is going to be the google map*/
+td:first-of-type, td:first-of-type > div {
+  height:200px;
+  width:250px;
+}

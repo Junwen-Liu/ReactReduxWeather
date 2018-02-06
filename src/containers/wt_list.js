@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Chart from '../components/chart';
+import GoogleMap from '../components/google_map';
 
 class Wtlist extends Component{
   renderWt(ctdata){
@@ -8,11 +9,11 @@ class Wtlist extends Component{
     const temps = ctdata.list.map(wt => wt.main.temp);
     const pressures = ctdata.list.map(wt => wt.main.pressure);
     const humidities = ctdata.list.map(wt => wt.main.humidity);
-    console.log(temps);
+    const {lon, lat}=ctdata.city.coord;
 
     return (
       <tr key={name}>
-        <td>{name}</td>
+        <td><GoogleMap lon={lon} lat={lat}/></td>
           <td><Chart data={temps} color="orange" unit="K"/></td>
           <td><Chart data={pressures} color="blue" unit="hPa"/></td>
           <td><Chart data={humidities} color="green" unit="%"/></td>
